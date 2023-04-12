@@ -7,3 +7,4 @@ services:
       - "8000:8000"
     volumes:
       - .:/app
+    command: sh "python manage.py runserver --noreload 0.0.0.0:8000"
