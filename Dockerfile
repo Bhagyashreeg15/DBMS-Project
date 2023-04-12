@@ -13,6 +13,3 @@ COPY . .
 
 # Expose port 8000 for the Django application to run on
 EXPOSE 8000
-
-# Start the Django application
-CMD ["python3", "manage.py", "runserver","--noreload", "0.0.0.0:8000"]
