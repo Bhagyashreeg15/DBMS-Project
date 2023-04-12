@@ -1,20 +1,10 @@
-# Use the official Jenkins base image as a parent image
-FROM jenkins/jenkins:lts
+FROM python:3.9
 
-# Switch to root user to install additional packages
-USER root
-
-# Install Python and pip
-RUN apt-get update && apt-get install -y python3 python3-pip
-
-# Set the working directory to /app
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirement.txt
 
-# Install any needed packages specified in requirements.txt
-RUN pip install -r requirement.txt
+COPY . .
 
-# Expose port 8000 for the Django development server
-EXPOSE 8000
+CMD ["python", "manage.py", "runserver","--noreload", "0.0.0.0:8000"]
