@@ -1,7 +1,7 @@
 # Use an official Python runtime as a parent image
 FROM python:3.8-slim-buster
 
-DOCKER_HOST tcp://44.203.130.145:8000
+ENV DOCKER_HOST tcp://44.203.130.145:8000
 
 # Set the working directory to /app
 WORKDIR /app
