@@ -5,7 +5,7 @@ FROM python:3.8-slim-buster
 WORKDIR /app
 
 # Copy the requirements file into the container and install dependencies
-COPY requirements.txt .
+COPY requirement.txt .
 RUN pip install --no-cache-dir -r requirement.txt
 
 # Copy the source code into the container
@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 8000
 
 # Start the Django application
-CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python3", "manage.py", "runserver","--noreload", "0.0.0.0:8000"]
